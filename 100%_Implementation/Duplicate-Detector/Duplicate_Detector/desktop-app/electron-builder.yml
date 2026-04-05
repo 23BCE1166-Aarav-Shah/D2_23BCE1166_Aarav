@@ -1,0 +1,46 @@
+appId: local.duplicate.scanner
+productName: Duplicate Scanner
+artifactName: "${productName}-${version}-${arch}.${ext}"
+directories:
+  output: dist
+  buildResources: build
+asar: true
+files:
+  - main.js
+  - preload.js
+  - index.html
+  - src/**/*
+  - package.json
+extraResources:
+  - from: "${env.DUPLICATE_BACKEND_INSTALL_DIR}"
+    to: backend
+linux:
+  category: Utility
+  target:
+    - target: AppImage
+      arch:
+        - x64
+    - target: deb
+      arch:
+        - x64
+  executableName: duplicate-scanner
+  synopsis: Offline duplicate file scanner
+  description: Offline Electron desktop app with bundled local C++ backend service.
+  artifactName: "${productName}-${version}-${arch}.${ext}"
+  desktop:
+    entry:
+      Name: Duplicate Scanner
+      Comment: Offline duplicate file scanner
+      Categories: Utility;
+      StartupWMClass: Duplicate Scanner
+deb:
+  maintainer: "Duplicate Scanner Team <shah.aarav.175@gmail.com>"
+  depends:
+    - libgtk-3-0
+    - libnotify4
+    - libnss3
+    - libxss1
+    - libxtst6
+    - xdg-utils
+electronDownload:
+  cache: "../offline-cache/electron"

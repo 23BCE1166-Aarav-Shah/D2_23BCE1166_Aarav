@@ -1,0 +1,63 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# C++ / build outputs
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+*.d
+
+# CMake / build trees
+/build/
+/dist/
+/CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+Makefile
+
+# Local backend install / packages
+/desktop-app/dist/
+
+# Node / Electron
+/desktop-app/node_modules/
+/native-addon/node_modules/
+/native-addon/build/
+
+# Offline caches
+/offline-cache/npm/*
+/offline-cache/electron/*
+/offline-cache/electron-builder/*
+/offline-cache/node_modules.tar.gz
+!/offline-cache/README.md
+!/offline-cache/npm/.gitkeep
+!/offline-cache/electron/.gitkeep
+!/offline-cache/electron-builder/.gitkeep
+
+# Runtime / local data
+.cache/
+.tmp/
+tmp/
+
+# Keep source, ignore generated integration output
+/build/integration-fixture/
+/build/integration/scan-output.txt

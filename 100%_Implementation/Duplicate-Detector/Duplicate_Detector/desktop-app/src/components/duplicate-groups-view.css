@@ -1,0 +1,16 @@
+.preview-audio-bg {
+  background:
+    linear-gradient(135deg, rgba(124,110,246,0.12), rgba(62,207,142,0.06)),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0 3px, transparent 3px 10px);
+}
+
+.file-card-open {
+  opacity: 0;
+  transform: translateY(-2px);
+}
+
+.group:hover .file-card-open,
+.group:focus-within .file-card-open {
+  opacity: 1;
+  transform: translateY(0);
+}

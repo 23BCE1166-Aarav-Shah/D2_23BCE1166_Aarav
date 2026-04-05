@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: file: local:; connect-src http://127.0.0.1:8080;"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Duplicate Scanner</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+    <link rel="stylesheet" href="./src/components/duplicate-groups-view.css" />
+  </head>
+  <body class="bg-app font-sans text-txt">
+    <div id="root"></div>
+    <script src="./node_modules/react/umd/react.production.min.js"></script>
+    <script src="./node_modules/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="./src/components/duplicate-groups-view.js"></script>
+    <script src="./src/renderer.js"></script>
+  </body>
+</html>

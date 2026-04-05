@@ -1,0 +1,28 @@
+{
+  "name": "duplicate-desktop-app",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "npm@10.9.3",
+  "description": "Offline Electron + React desktop client for local duplicate scanning.",
+  "homepage": "https://example.invalid/duplicate-scanner",
+  "author": {
+    "name": "Duplicate Scanner Team",
+    "email": "maintainer@example.invalid"
+  },
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist:linux": "electron-builder --config electron-builder.yml --linux AppImage deb",
+    "pack:dir": "electron-builder --config electron-builder.yml --dir"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "electron": "35.1.4",
+    "electron-builder": "25.1.8"
+  },
+  "start": "electron . --no-sandbox",
+  "license": "UNLICENSED"
+}

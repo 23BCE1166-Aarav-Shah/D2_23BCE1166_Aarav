@@ -1,0 +1,36 @@
+set(bundle_executable "@BUNDLE_EXE@")
+set(bundle_library_dirs "@BUNDLE_OPEN_CV_DIRS@;@BUNDLE_PKG_DIRS@")
+set(destination_dir "${CMAKE_INSTALL_PREFIX}/@BUNDLE_INSTALL_LIBDIR@")
+
+file(MAKE_DIRECTORY "${destination_dir}")
+
+file(GET_RUNTIME_DEPENDENCIES
+    EXECUTABLES "${bundle_executable}"
+    RESOLVED_DEPENDENCIES_VAR resolved_dependencies
+    UNRESOLVED_DEPENDENCIES_VAR unresolved_dependencies
+    DIRECTORIES ${bundle_library_dirs}
+    PRE_EXCLUDE_REGEXES
+        "api-ms-"
+        "ext-ms-"
+    POST_EXCLUDE_REGEXES
+        ".*/ld-linux.*"
+        ".*/linux-vdso.so.*"
+        ".*/libc\\.so.*"
+        ".*/libm\\.so.*"
+        ".*/libpthread\\.so.*"
+        ".*/libdl\\.so.*"
+        ".*/librt\\.so.*"
+)
+
+foreach(dependency IN LISTS resolved_dependencies)
+    file(INSTALL
+        DESTINATION "${destination_dir}"
+        TYPE SHARED_LIBRARY
+        FOLLOW_SYMLINK_CHAIN
+        FILES "${dependency}"
+    )
+endforeach()
+
+if(unresolved_dependencies)
+    message(FATAL_ERROR "Unresolved runtime dependencies: ${unresolved_dependencies}")
+endif()
